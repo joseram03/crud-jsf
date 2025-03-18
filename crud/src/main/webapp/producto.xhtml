@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"> <!-- Asegúrate de incluir este xmlns:f -->
+<h:head>
+    <title>CRUD Producto</title>
+</h:head>
+<h:body>
+    <h:form id="productoForm" prependId="false">
+        <p:panel header="Gestión de Productos">
+            <p:messages id="messages" showDetail="true" closable="true"/>
+
+            <h:panelGrid columns="2">
+                <h:outputLabel for="nombre" value="Nombre:"/>
+                <p:inputText id="nombre" value="#{productoBean.producto.nombre}" required="true"/>
+
+                <h:outputLabel for="precio" value="Precio:"/>
+                <p:inputText id="precio" value="#{productoBean.producto.precio}" required="true">
+                    <f:validateLongRange minimum="1"/> <!-- Aquí ya debería funcionar -->
+                    <f:converter converterId="javax.faces.Integer"/>
+                </p:inputText>
+            </h:panelGrid>
+
+            <p:commandButton value="Guardar" action="#{productoBean.guardar}" update="@form"/>
+        </p:panel>
+
+        <p:dataTable var="prod" value="#{productoBean.productos}" border="1">
+            <p:column headerText="ID">
+                <h:outputText value="#{prod.id}"/>
+            </p:column>
+            <p:column headerText="Nombre">
+                <h:outputText value="#{prod.nombre}"/>
+            </p:column>
+            <p:column headerText="Precio">
+                <h:outputText value="#{prod.precio}">
+                    <f:convertNumber type="currency"/>
+                </h:outputText>
+            </p:column>
+            <p:column headerText="Acciones">
+                <p:commandButton value="Editar" action="#{productoBean.cargarProducto(prod.id)}" update=":productoForm" process="@this"/>
+                <p:commandButton value="Eliminar" action="#{productoBean.eliminar(prod.id)}" update=":productoForm" process="@this"
+                                 styleClass="ui-button-danger" immediate="true" onclick="return confirm('¿Seguro que deseas eliminar?')"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>

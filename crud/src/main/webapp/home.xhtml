@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Inicio - Sistema de Gestión</title>
+    <h:outputStylesheet name="styles/styles.css" />
+</h:head>
+
+<h:body style="background: #f0f0f0;">
+    <p:layout fullPage="true">
+        <!-- Header -->
+        <p:layoutUnit position="north" size="100" style="border:0;background: #2c3e50;color:white">
+            <h:form>
+                <p:toolbar style="background:none;border:0">
+                    <f:facet name="left">
+                        <h1 style="margin:15px;font-size:24pt">
+                            <i class="ui-icon ui-icon-home" style="vertical-align:middle;margin-right:10px"></i>
+                            Sistema de Gestión
+                        </h1>
+                    </f:facet>
+                </p:toolbar>
+            </h:form>
+        </p:layoutUnit>
+
+        <!-- Contenido Principal -->
+        <p:layoutUnit position="center" style="border:0">
+            <h:form styleClass="center-form">
+                <p:panelGrid columns="1" style="border:0;background:none" columnClasses="ui-widget-header">
+                    <p:row>
+                        <p:column style="text-align:center;padding:20px">
+                            <p:commandButton value="Clientes" icon="ui-icon-person"
+                                             action="cliente.xhtml?faces-redirect=true"
+                                             styleClass="main-button ui-button-primary"
+                                             ajax="false"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column style="text-align:center;padding:20px">
+                            <p:commandButton value="Categorías" icon="ui-icon-tag"
+                                             action="categoria.xhtml?faces-redirect=true"
+                                             styleClass="main-button ui-button-success"
+                                             ajax="false"/>
+                        </p:column>
+                    </p:row>
+
+                    <p:row>
+                        <p:column style="text-align:center;padding:20px">
+                            <p:commandButton value="Productos" icon="ui-icon-tag"
+                                             action="producto.xhtml?faces-redirect=true"
+                                             styleClass="main-button ui-button-success"
+                                             ajax="false"/>
+                        </p:column>
+                    </p:row>
+                </p:panelGrid>
+            </h:form>
+        </p:layoutUnit>
+
+        <!-- Footer -->
+        <p:layoutUnit position="south" size="40" style="border:0;background:#ecf0f1;color:#7f8c8d">
+            <p:toolbar style="background:none;border:0">
+                <f:facet name="right">
+                    <h:outputText value="© 2024 Sistema de Gestión - v1.0"
+                                  style="font-size:0.9em;margin-right:20px"/>
+                </f:facet>
+            </p:toolbar>
+        </p:layoutUnit>
+    </p:layout>
+</h:body>
+</html>

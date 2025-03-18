@@ -1,0 +1,28 @@
+.main-button {
+    font-size: 1.5em !important;
+    padding: 20px 40px !important;
+    min-width: 250px;
+    transition: all 0.3s ease;
+}
+
+.main-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.center-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.ui-button-primary {
+    background: #3498db !important;
+    border-color: #2980b9 !important;
+}
+
+.ui-button-success {
+    background: #2ecc71 !important;
+    border-color: #27ae60 !important;
+}

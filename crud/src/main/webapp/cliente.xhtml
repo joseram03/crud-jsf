@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>CRUD Cliente</title>
+</h:head>
+<h:body>
+    <h:form id="clienteForm" prependId="false">
+        <p:panel header="Gestión de Clientes">
+            <p:messages id="messages" showDetail="true" closable="true"/>
+
+            <h:panelGrid columns="2">
+                <h:outputLabel for="nombre" value="Nombre:"/>
+                <p:inputText id="nombre" value="#{clienteBean.cliente.nombre}" required="true"/>
+
+                <h:outputLabel for="email" value="Email:"/>
+                <p:inputText id="email" value="#{clienteBean.cliente.email}" required="true"/>
+
+                <h:outputLabel for="telefono" value="Teléfono:"/>
+                <p:inputText id="telefono" value="#{clienteBean.cliente.telefono}" required="true"/>
+            </h:panelGrid>
+
+            <p:commandButton value="Guardar" action="#{clienteBean.guardar}" update="@form"/>
+        </p:panel>
+
+        <p:dataTable var="cli" value="#{clienteBean.clientes}" border="1">
+            <p:column headerText="ID">
+                <h:outputText value="#{cli.id}"/>
+            </p:column>
+            <p:column headerText="Nombre">
+                <h:outputText value="#{cli.nombre}"/>
+            </p:column>
+            <p:column headerText="Email">
+                <h:outputText value="#{cli.email}"/>
+            </p:column>
+            <p:column headerText="Teléfono">
+                <h:outputText value="#{cli.telefono}"/>
+            </p:column>
+            <p:column headerText="Acciones">
+                <p:commandButton value="Editar" action="#{clienteBean.cargarCliente(cli.id)}" update=":clienteForm" process="@this"/>
+                <p:commandButton value="Eliminar" action="#{clienteBean.eliminar(cli.id)}" update=":clienteForm" process="@this"
+                                 styleClass="ui-button-danger" immediate="true" onclick="return confirm('¿Seguro que deseas eliminar?')"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>

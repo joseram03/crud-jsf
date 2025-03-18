@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>CRUD Categoría</title>
+</h:head>
+<h:body>
+    <h:form id="categoriaForm" prependId="false">
+        <p:panel header="Gestión de Categorías">
+            <p:messages id="messages" showDetail="true" closable="true"/>
+
+            <h:panelGrid columns="2">
+                <h:outputLabel for="nombre" value="Nombre:"/>
+                <p:inputText id="nombre" value="#{categoriaBean.categoria.nombre}" required="true"/>
+            </h:panelGrid>
+
+            <p:commandButton value="Guardar" action="#{categoriaBean.guardar}" update="@form" process="@form"/>
+        </p:panel>
+
+        <p:dataTable var="cat" value="#{categoriaBean.categorias}" border="1">
+            <p:column headerText="ID">
+                <h:outputText value="#{cat.id}"/>
+            </p:column>
+            <p:column headerText="Nombre">
+                <h:outputText value="#{cat.nombre}"/>
+            </p:column>
+            <p:column headerText="Acciones">
+                <p:commandButton value="Editar" action="#{categoriaBean.cargarCategoria(cat.id)}" update=":categoriaForm" process="@this"/>
+                <p:commandButton value="Eliminar" action="#{categoriaBean.eliminar(cat.id)}" update=":categoriaForm" process="@this"
+                                 styleClass="ui-button-danger" immediate="true" onclick="return confirm('¿Seguro que deseas eliminar esta categoría?')"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
+</h:body>
+</html>
