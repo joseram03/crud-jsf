@@ -26,8 +26,3 @@ Aplicación CRUD completa para gestión de productos y categorías desarrollada 
 - Servidor de aplicaciones (WildFly/GlassFish)
 - Base de datos (H2/MySQL)
 
-### Pasos de Instalación
-1. Clonar repositorio:
-   ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
-   cd tu-repositorio
