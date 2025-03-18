@@ -24,5 +24,5 @@ Aplicación CRUD desarrollada con:
 - JDK 8+
 - Maven 3.6+
 - Servidor de aplicaciones (WildFly/GlassFish)
-- Base de datos (H2/MySQL)
+- Base de datos postgresql
 
