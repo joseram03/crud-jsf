@@ -1,6 +1,6 @@
-# Sistema de Gestión de Productos y Categorías
+# Sistema de CRUD de Clientes, Categorias y Productos
 
-Aplicación CRUD completa para gestión de productos y categorías desarrollada con:
+Aplicación CRUD desarrollada con:
 
 - **Java EE 7**
 - **JSF 2.3** (Jakarta Server Faces)
